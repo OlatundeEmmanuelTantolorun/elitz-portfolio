@@ -58,14 +58,12 @@ function ProjectCard({ project, index }) {
   const opacity = useTransform(lightLevel, [start, start + 0.4], [0.03, 1]);
   const y = useTransform(lightLevel, [start, start + 0.4], [16, 0]);
 
-  // Check if GitHub is a private repository
   const isPrivateRepo =
     project.isPrivate === true ||
     project.github === "Private repository (client project)" ||
     project.github === "Private repository" ||
     !project.github?.startsWith("http");
 
-  // Build GitHub section with if/else
   let githubSection;
   if (isPrivateRepo) {
     githubSection = (

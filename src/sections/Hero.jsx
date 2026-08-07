@@ -17,18 +17,16 @@ export default function Hero() {
     (v) => `grayscale(${v}) brightness(${0.55 + v * 0.45})`,
   );
 
-  // Get social links from contactData (filter out email and location)
   const socialLinks = contactData.contactItems.filter(
     (item) => item.type === "link" && item.id !== "email",
   );
 
-  // Resume URL from contactData
   const resumeUrl = contactData.secondaryButton.href;
 
   return (
     <section className="relative min-h-screen flex items-center px-6 lg:px-16 pt-30 overflow-hidden">
       <div className="relative z-20 w-full max-w-6xl mx-auto grid lg:grid-cols-[1fr_0.85fr] gap-20 items-center">
-        {/* ---------- hero content ---------- */}
+        {/* hero content */}
         <motion.div
           style={{ opacity: contentOpacity, y: contentY }}
           className="flex flex-col gap-6"
@@ -109,7 +107,7 @@ export default function Hero() {
           </div>
         </motion.div>
 
-        {/* ---------- desktop portrait ---------- */}
+        {/* desktop portrait */}
         <motion.div
           style={{ opacity: photoOpacity, pointerEvents: "none" }}
           className="hidden lg:flex justify-center"

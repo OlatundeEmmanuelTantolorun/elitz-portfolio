@@ -30,8 +30,8 @@ export default function Navbar() {
         style={{ opacity: borderOpacity, background: "var(--color-spark)" }}
       />
       <nav className="w-full max-w-6xl mx-auto px-4 flex items-center justify-between">
-        {/* logo mark — swap /public/assets/logo.svg for the real logo whenever ready */}
-        <a href="/#" aria-label="Elitz — home">
+        {/* logo  */}
+        <a href="/" aria-label="Elitz — home">
           <img
             src="/assets/logo.png"
             alt="Elitz"
@@ -95,7 +95,7 @@ export default function Navbar() {
                   }}
                   style={{ color: "var(--color-spark)" }}
                 >
-                  <FaHandPointRight size={16} />
+                  <FaHandPointRight size={25} />
                 </motion.span>
               </motion.div>
             )}

@@ -3,7 +3,13 @@ import {
   HiOutlineLocationMarker,
   HiOutlineDownload,
 } from "react-icons/hi";
-import { FaGithub, FaLinkedin, FaTiktok, FaXTwitter } from "react-icons/fa6";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaTiktok,
+  FaXTwitter,
+  FaWhatsapp,
+} from "react-icons/fa6";
 import { AiOutlinePhone } from "react-icons/ai";
 
 export const contactData = {
@@ -44,6 +50,16 @@ export const contactData = {
       type: "link",
       href: "https://x.com/elitz_dev",
     },
+    {
+      id: "whatsapp",
+      icon: FaWhatsapp,
+      label: "WhatsApp",
+      value: "+234 906 688 2533",
+      displayName: "@Elitz_dev",
+      type: "link",
+      href: "https://wa.me/2349066882533?text=Hello%2C%20are%20you%20available%20for%20HIRE%3F",
+    },
+
     {
       id: "TikTok",
       icon: FaTiktok,

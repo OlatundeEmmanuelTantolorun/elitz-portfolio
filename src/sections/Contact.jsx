@@ -9,7 +9,6 @@ export default function Contact() {
 
   const contactItems = contactData?.contactItems || [];
 
-  // Check if item has a clickable href
   const isClickable = (item) => {
     return (
       item.href &&
@@ -17,7 +16,6 @@ export default function Contact() {
     );
   };
 
-  // Render a single contact item — entire card is clickable
   const renderContactItem = (item) => {
     const Icon = item.icon;
     const displayText = item.displayName || item.value;
@@ -37,7 +35,6 @@ export default function Contact() {
       </div>
     );
 
-    // If clickable, wrap entire thing in an anchor
     if (clickable) {
       const isExternal = item.type === "link";
       return (
@@ -53,7 +50,6 @@ export default function Contact() {
       );
     }
 
-    // Otherwise render as a div
     return (
       <div
         key={item.id}

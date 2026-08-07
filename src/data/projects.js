@@ -110,4 +110,43 @@ export const projects = [
     featured: false,
     isPrivate: true,
   },
+  {
+    id: 7,
+    title: "Elitz Portfolio",
+    label: "Personal Website",
+    category: "Personal Project",
+    year: "2026",
+    description:
+      "A cinematic portfolio built to showcase my frontend development work. Features a unique light-reveal experience, interactive switch, and a clean, immersive design that reflects my approach to building thoughtful digital experiences.",
+    problem:
+      "I wanted a portfolio that wasn't just a static page — something that would leave a lasting impression and tell my story as a developer through interaction and intentional design.",
+    tech: [
+      "React 19",
+      "Vite",
+      "Tailwind CSS v4",
+      "Framer Motion",
+      "React Router",
+    ],
+    live: "https://elitz.dev/",
+    github: "https://github.com/OlatundeEmmanuelTantolorun/elitz-portfolio",
+    image: "/assets/screenshots/portfolio.jpg",
+    featured: true,
+  },
+  {
+    id: 8,
+    title: "Profile Card",
+    label: "Interactive Component",
+    category: "Personal Project",
+    year: "2026",
+    description:
+      "A sleek, interactive profile card with a hover image swap effect, neon aesthetic, and responsive design. Built with vanilla HTML and CSS — showcases my ability to craft engaging UI components without frameworks.",
+    problem:
+      "I wanted a memorable, all-in-one digital identity that tells my story at a glance — availability, tech stack, and personality all in one card.",
+    tech: ["HTML5", "CSS3", "Font Awesome"],
+    live: "https://emmanuel-profile-card-gamma.vercel.app/",
+    github:
+      "https://github.com/OlatundeEmmanuelTantolorun/emmanuel-ProfileCard/",
+    image: "/assets/screenshots/profile-card.jpg",
+    featured: false,
+  },
 ];

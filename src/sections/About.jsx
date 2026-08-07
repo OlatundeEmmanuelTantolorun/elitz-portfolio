@@ -1,6 +1,6 @@
 import { motion, useTransform } from "framer-motion";
 import { useLight } from "../context/LightContext";
-import WorkingPhoto from "../assets/about.png";
+import WorkingPhoto from "../assets/about.jpg";
 import { aboutData } from "../data/about";
 
 export default function About() {
@@ -10,21 +10,19 @@ export default function About() {
 
   return (
     <section id="about" className="relative py-32 px-6 overflow-hidden">
-      {/* Warm golden glow behind the image (now on left) */}
+      {/* Warm golden glow behind the image */}
       <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-[radial-gradient(circle,rgba(245,185,66,0.08)_0%,transparent_70%)] pointer-events-none hidden md:block" />
 
       <motion.div
         style={{ opacity, y }}
         className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-start"
       >
-        {/* ---------- Image & Timeline (Left on desktop, bottom on mobile) ---------- */}
+        {/* Image */}
         <div className="flex flex-col gap-6 order-2 md:order-1">
           {/* Custom curved mask with golden glow */}
           <div className="relative md:mt-18">
-            {/* Warm golden glow behind image */}
             <div className="absolute -inset-4 md:-inset-8 rounded-[40%_60%_30%_70%_/50%_40%_60%_50%] bg-gradient-to-br from-spark/15 via-spark/5 to-transparent blur-3xl" />
 
-            {/* Image with organic clip-path */}
             <div
               className="relative rounded-[30%_70%_20%_80%_/40%_40%_60%_60%] overflow-hidden shadow-2xl shadow-black/60 ring-1 ring-spark/10"
               style={{
@@ -75,7 +73,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* ---------- Text Content (Right on desktop, top on mobile) ---------- */}
+        {/* Text Content */}
         <div className="flex flex-col gap-6 order-1 md:order-2">
           {/* "About Me" heading */}
           <div>
@@ -90,7 +88,7 @@ export default function About() {
             {aboutData.heading}
           </h2>
 
-          {/* "What Drives Me" — with full name bold */}
+          {/* "What Drives Me" */}
           <div>
             <p className="text-xs font-mono tracking-[0.15em] uppercase text-spark/60 mb-2">
               {aboutData.driveLabel}
