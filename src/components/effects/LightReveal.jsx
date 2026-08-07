@@ -9,7 +9,7 @@ export default function LightReveal() {
 
   return (
     <div className="pointer-events-none fixed inset-0 z-10 overflow-hidden">
-      {/* the LED seam — the actual light source, a thin bright line */}
+      {/* the LED seam the actual light source, a thin bright line */}
       <motion.div
         className="absolute left-0 right-0 top-16 h-[2px]"
         style={{

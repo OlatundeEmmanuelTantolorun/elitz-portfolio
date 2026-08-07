@@ -30,7 +30,7 @@ export default function Navbar() {
         style={{ opacity: borderOpacity, background: "var(--color-spark)" }}
       />
       <nav className="w-full max-w-6xl mx-auto px-4 flex items-center justify-between">
-        {/* logo  */}
+        {/* Logo */}
         <a href="/" aria-label="Elitz — home">
           <img
             src="/assets/logo.png"
@@ -70,7 +70,7 @@ export default function Navbar() {
         </div>
 
         <div className="relative flex items-center gap-4">
-          {/* nudge toward the switch — only while the room is still dark */}
+          {/* nudge toward the switch only while the room is still dark */}
           <AnimatePresence>
             {phase === "dark" && (
               <motion.div
@@ -95,7 +95,7 @@ export default function Navbar() {
                   }}
                   style={{ color: "var(--color-spark)" }}
                 >
-                  <FaHandPointRight size={25} />
+                  <FaHandPointRight size={16} />
                 </motion.span>
               </motion.div>
             )}

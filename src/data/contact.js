@@ -72,7 +72,7 @@ export const contactData = {
       id: "location",
       icon: HiOutlineLocationMarker,
       label: "Location",
-      value: "Lokoja, Nigeria",
+      value: "Nigeria",
       type: "text",
     },
     {

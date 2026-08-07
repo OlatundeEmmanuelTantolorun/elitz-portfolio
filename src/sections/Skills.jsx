@@ -16,7 +16,7 @@ export default function Skills() {
         <h2 className="font-display font-semibold text-3xl sm:text-4xl text-ink mb-4">
           The technologies behind every idea.
         </h2>
-        <p className="text-base text-muted/80 max-w-2xl mb-14">
+        <p className="text-base text-muted/85 max-w-2xl mb-14">
           Every tool has its purpose. I choose technologies that help me build
           fast, scalable, and intuitive digital experiences.
         </p>
@@ -31,7 +31,7 @@ export default function Skills() {
         {/* Closing Quote */}
         <motion.p
           style={{ opacity }}
-          className="text-center text-sm text-muted/50 mt-16 border-t border-line pt-8 italic"
+          className="text-center text-sm text-muted/90 mt-16 border-t border-line pt-8 italic"
         >
           &ldquo;Technology changes. Curiosity keeps learning alive.&rdquo;
         </motion.p>
@@ -65,7 +65,7 @@ function SkillCard({ group, index }) {
       </div>
 
       {/* Description */}
-      <p className="text-sm text-muted/60 mb-4 leading-relaxed">
+      <p className="text-sm text-muted/70 mb-4 leading-relaxed">
         {group.description}
       </p>
 

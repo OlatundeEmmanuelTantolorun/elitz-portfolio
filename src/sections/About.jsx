@@ -17,12 +17,14 @@ export default function About() {
         style={{ opacity, y }}
         className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 md:gap-16 items-start"
       >
-        {/* Image */}
+        {/* Image & Timeline */}
         <div className="flex flex-col gap-6 order-2 md:order-1">
           {/* Custom curved mask with golden glow */}
           <div className="relative md:mt-18">
+            {/* Warm golden glow behind image */}
             <div className="absolute -inset-4 md:-inset-8 rounded-[40%_60%_30%_70%_/50%_40%_60%_50%] bg-gradient-to-br from-spark/15 via-spark/5 to-transparent blur-3xl" />
 
+            {/* Image */}
             <div
               className="relative rounded-[30%_70%_20%_80%_/40%_40%_60%_60%] overflow-hidden shadow-2xl shadow-black/60 ring-1 ring-spark/10"
               style={{
@@ -130,7 +132,7 @@ export default function About() {
                 <p className="font-display text-xl font-semibold text-spark">
                   {stat.value}
                 </p>
-                <p className="text-xs uppercase tracking-wider text-muted/60">
+                <p className="text-xs uppercase tracking-wider text-muted/85">
                   {stat.label}
                 </p>
               </div>
@@ -139,7 +141,7 @@ export default function About() {
 
           {/* Current Focus */}
           <div className="border-t border-line pt-4 mt-2">
-            <p className="text-sm text-muted/70">
+            <p className="text-sm text-muted/80">
               <span className="font-mono text-xs tracking-wider uppercase text-spark/80">
                 Current Focus
               </span>{" "}
@@ -150,7 +152,7 @@ export default function About() {
             </p>
           </div>
 
-          <p className="text-sm text-muted/60 border-t border-line pt-4">
+          <p className="text-sm text-muted/75 border-t border-line pt-4">
             {aboutData.closingText}
           </p>
         </div>

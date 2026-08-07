@@ -32,17 +32,22 @@ export default function Projects() {
           few of the experiences I've built.
         </motion.p>
 
-        {/* Project Cards — full width, stacked */}
+        {/* Project Cards full width, stacked */}
         <div className="space-y-12">
           {projects.map((project, index) => (
-            <ProjectCard key={project.id} project={project} index={index} />
+            <ProjectCard
+              key={project.id}
+              project={project}
+              index={index}
+              total={projects.length}
+            />
           ))}
         </div>
 
         {/* Section ending */}
         <motion.p
           style={{ opacity: headOpacity }}
-          className="text-center text-sm text-muted/60 mt-16 border-t border-line pt-8"
+          className="text-center text-sm text-muted/85 mt-16 border-t border-line pt-8"
         >
           Every project represents another step in my journey of building
           thoughtful digital experiences.
@@ -52,11 +57,12 @@ export default function Projects() {
   );
 }
 
-function ProjectCard({ project, index }) {
+function ProjectCard({ project, index, total }) {
   const { lightLevel } = useLight();
-  const start = 0.15 + index * 0.1;
-  const opacity = useTransform(lightLevel, [start, start + 0.4], [0.03, 1]);
-  const y = useTransform(lightLevel, [start, start + 0.4], [16, 0]);
+  const stagger = 0.5 / total;
+  const start = 0.15 + index * stagger;
+  const opacity = useTransform(lightLevel, [start, start + 0.35], [0.03, 1]);
+  const y = useTransform(lightLevel, [start, start + 0.35], [16, 0]);
 
   const isPrivateRepo =
     project.isPrivate === true ||
@@ -67,7 +73,7 @@ function ProjectCard({ project, index }) {
   let githubSection;
   if (isPrivateRepo) {
     githubSection = (
-      <span className="inline-flex items-center gap-1.5 font-mono text-sm text-muted/50 cursor-not-allowed">
+      <span className="inline-flex items-center gap-1.5 font-mono text-sm text-muted/80 cursor-not-allowed">
         <HiOutlineLockClosed size={14} />
         Private Repository
       </span>
@@ -92,7 +98,7 @@ function ProjectCard({ project, index }) {
       whileHover={{ y: -4 }}
       transition={{ type: "spring", stiffness: 300, damping: 24 }}
     >
-      {/* Left: Image (screenshot) */}
+      {/* Left: Image */}
       <div className="relative overflow-hidden rounded-xl ring-1 ring-white/5 bg-surface">
         <img
           src={project.image}
@@ -106,7 +112,7 @@ function ProjectCard({ project, index }) {
           {project.category}
         </span>
         {/* Year */}
-        <span className="absolute bottom-3 right-3 font-mono text-[10px] text-muted/50">
+        <span className="absolute bottom-3 right-3 font-mono text-[10px] text-muted/70">
           {project.year}
         </span>
       </div>
@@ -124,18 +130,18 @@ function ProjectCard({ project, index }) {
         </div>
 
         {/* Description */}
-        <p className="text-base text-muted/90 leading-relaxed">
+        <p className="text-base text-muted/95 leading-relaxed">
           {project.description}
         </p>
 
-        {/* Problem statement (optional — small, italic) */}
+        {/* Problem statement */}
         {project.problem && (
-          <p className="text-sm text-muted/60 italic leading-relaxed border-l-2 border-spark/30 pl-3">
+          <p className="text-sm text-muted/70 italic leading-relaxed border-l-2 border-spark/30 pl-3">
             {project.problem}
           </p>
         )}
 
-        {/* Tech pills — from the data */}
+        {/* Tech pills from the data */}
         <div className="flex flex-wrap gap-2">
           {project.tech.map((tech) => (
             <span

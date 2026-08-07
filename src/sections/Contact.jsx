@@ -8,7 +8,6 @@ export default function Contact() {
   const opacity = useTransform(lightLevel, [0, 1], [0.03, 1]);
 
   const contactItems = contactData?.contactItems || [];
-
   const isClickable = (item) => {
     return (
       item.href &&
@@ -27,7 +26,7 @@ export default function Contact() {
           <Icon size={20} />
         </div>
         <div className="min-w-0 flex-1">
-          <p className="text-xs font-mono tracking-wider uppercase text-muted/50">
+          <p className="text-xs font-mono tracking-wider uppercase text-muted">
             {item.label}
           </p>
           <p className="text-sm text-ink truncate">{displayText}</p>
@@ -70,7 +69,7 @@ export default function Contact() {
         <h2 className="font-display font-semibold text-3xl sm:text-4xl text-ink mb-4 text-center">
           {contactData?.meta?.heading || "Let's Build Something Meaningful."}
         </h2>
-        <p className="text-base text-muted/80 max-w-2xl mx-auto text-center mb-12">
+        <p className="text-base text-muted/90 max-w-2xl mx-auto text-center mb-12">
           {contactData?.meta?.description || "I'd love to hear from you."}
         </p>
 
@@ -108,7 +107,7 @@ export default function Contact() {
         {/* Closing Quote */}
         <motion.p
           style={{ opacity }}
-          className="text-center text-sm text-muted/50 mt-16 border-t border-line pt-8 italic"
+          className="text-center text-sm text-muted/90 mt-16 border-t border-line pt-8 italic"
         >
           &ldquo;
           {contactData?.closingQuote ||
