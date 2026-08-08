@@ -127,7 +127,7 @@ export const projects = [
       "Framer Motion",
       "React Router",
     ],
-    live: "https://elitz.dev/",
+    live: "https://elitz-portfolio.vercel.app/",
     github: "https://github.com/OlatundeEmmanuelTantolorun/elitz-portfolio",
     image: "/assets/screenshots/portfolio.jpg",
     featured: true,
