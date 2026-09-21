@@ -1,99 +1,54 @@
-import {
-  HiOutlineMail,
-  HiOutlineLocationMarker,
-  HiOutlineDownload,
-} from "react-icons/hi";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaTiktok,
-  FaXTwitter,
-  FaWhatsapp,
-} from "react-icons/fa6";
-import { AiOutlinePhone } from "react-icons/ai";
-
-export const contactData = {
-  label: "Contact",
-  heading: "Let's Build Something Meaningful.",
-  description:
-    "Whether you have an idea waiting to be built, a project to collaborate on, or simply want to connect, I'd love to hear from you. Let's create something that leaves a lasting impact.",
-  contactItems: [
+export const contact = {
+  heading: {
+    eyebrow: 'THE NEXT BUILD STARTS WITH A CONVERSATION.',
+    title: 'WHAT ARE',
+    titleAccent: 'WE BUILDING?',
+  },
+  email: {
+    label: 'Email',
+    value: 'olatundeemmanueldev@gmail.com',
+    href: 'mailto:olatundeemmanueldev@gmail.com',
+  },
+  phone: {
+    label: 'Phone',
+    value: '+234 906 688 2533',
+    href: 'tel:+2349066882533',
+  },
+  location: 'Nigeria',
+  resume: {
+    href: '/resume.pdf',
+    label: 'Download Resume',
+  },
+  socials: [
     {
-      id: "email",
-      icon: HiOutlineMail,
-      label: "Email",
-      value: "olatundeemmanueldev@gmail.com",
-      type: "email",
-      href: "mailto:olatundeemmanueldev@gmail.com",
+      name: 'GitHub',
+      handle: 'Olatunde Emmanuel (Elitz)',
+      href: 'https://github.com/OlatundeEmmanuelTantolorun',
     },
     {
-      id: "github",
-      icon: FaGithub,
-      label: "GitHub",
-      value: "Olatunde Emmanuel (Elitz)",
-      type: "link",
-      href: "https://github.com/OlatundeEmmanuelTantolorun",
+      name: 'LinkedIn',
+      handle: 'Emmanuel Tantolorun',
+      href: 'https://www.linkedin.com/in/emmanuel-tantolorun-93244b3ab/',
     },
     {
-      id: "linkedin",
-      icon: FaLinkedin,
-      label: "LinkedIn",
-      value: "Emmanuel Tantolorun",
-      type: "link",
-      href: "https://www.linkedin.com/in/emmanuel-tantolorun-93244b3ab/",
+      name: 'X',
+      handle: '@elitz_dev',
+      href: 'https://x.com/elitz_dev',
     },
     {
-      id: "x",
-      icon: FaXTwitter,
-      label: "X",
-      value: "@elitz_dev",
-      type: "link",
-      href: "https://x.com/elitz_dev",
+      name: 'WhatsApp',
+      handle: '@Elitz_dev',
+      href: 'https://wa.me/2349066882533?text=Hello%2C%20are%20you%20available%20for%20HIRE%3F',
     },
     {
-      id: "whatsapp",
-      icon: FaWhatsapp,
-      label: "WhatsApp",
-      value: "+234 906 688 2533",
-      displayName: "@Elitz_dev",
-      type: "link",
-      href: "https://wa.me/2349066882533?text=Hello%2C%20are%20you%20available%20for%20HIRE%3F",
-    },
-
-    {
-      id: "TikTok",
-      icon: FaTiktok,
-      label: "TikTok",
-      value: "@elitz_01",
-      type: "link",
-      href: "https://www.tiktok.com/@elitz_dev01?",
-    },
-    {
-      id: "location",
-      icon: HiOutlineLocationMarker,
-      label: "Location",
-      value: "Nigeria",
-      type: "text",
-    },
-    {
-      id: "phone",
-      icon: AiOutlinePhone,
-      label: "Phone",
-      value: "+2349066882533",
-      displayName: "+234 906 688 2533",
-      type: "phone",
-      href: "tel:+2349066882533",
+      name: 'TikTok',
+      handle: '@elitz_01',
+      href: 'https://www.tiktok.com/@elitz_dev01',
     },
   ],
-  primaryButton: {
-    label: "Get In Touch",
-    href: "mailto:hello@elitz.dev",
-    icon: "→",
+  footer: {
+    year: 2026,
+    note: 'MADE WITH CURIOSITY.',
+    quote: 'The light is on. Let\'s build something together.',
   },
-  secondaryButton: {
-    label: "Download Resume",
-    href: "/resume.pdf",
-    icon: HiOutlineDownload,
-  },
-  closingQuote: "The light is on. Let's build something together.",
-};
+}
