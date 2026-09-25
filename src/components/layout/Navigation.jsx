@@ -1,7 +1,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
-import { scrollToId } from "../lib/scroll";
+import { scrollToId } from "../../lib/scroll";
 
 const links = [
   ["about", "About"],

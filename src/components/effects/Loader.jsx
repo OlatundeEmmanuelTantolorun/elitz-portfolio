@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import { getLenis } from "../lib/scroll";
+import { getLenis } from "../../lib/scroll";
 
 const NAME = "ELITZ.";
 const SESSION_KEY = "elitz:intro-seen";

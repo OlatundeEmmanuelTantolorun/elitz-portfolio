@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Download } from "lucide-react";
-import SectionLabel from "./SectionLabel";
-import { contact } from "../data/contact";
+import SectionLabel from "../ui/SectionLabel";
+import { contact } from "../../data/contact";
 
 const linkClass =
   "flex items-center gap-2 border-b border-current pb-1 font-mono text-[10px] font-medium uppercase tracking-[0.15em]";

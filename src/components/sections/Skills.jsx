@@ -1,8 +1,8 @@
 import { useLayoutEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import SectionLabel from "./SectionLabel";
-import { skillGroups, skillsIntro } from "../data/skills";
+import SectionLabel from "../ui/SectionLabel";
+import { skillGroups, skillsIntro } from "../../data/skills";
 
 gsap.registerPlugin(ScrollTrigger);
 

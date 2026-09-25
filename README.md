@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src=".github/assets/hero-preview.png" alt="Elitz portfolio preview" width="100%" />
+<img src="docs/assets/portfolio-preview.png" alt="Elitz portfolio preview" width="100%" />
 
 # Elitz — Developer Portfolio
 
@@ -18,55 +18,74 @@
 
 ---
 
-## About
+## Overview
 
-This is my personal developer portfolio, built around one idea: **light reveals the room, curiosity reveals what's possible.**
+This is the personal developer portfolio of **Emmanuel Olatunde, known as Elitz**.
 
-The site loads in darkness. A single switch — the one visual focal point — is the only way in. Flip it, and the page ignites: a light source under the navbar spreads down through the page, ghost-opacity content resolves into full color, and a portrait fades in from grayscale as the light reaches it. Flip it off, and the room dims back to black at its own, calmer pace — it isn't just the reveal animation played in reverse.
+The experience is built around a simple visual idea: the site begins in darkness and a single switch reveals the interface. As the light expands, the portfolio gradually resolves from muted, low-opacity content into its full visual state.
 
-Everything downstream of that one interaction — the badge, the headline, the project cards, the skills grid, the contact section — is driven by a single `lightLevel` value (0 → 1), not a set of separately-timed animations. One state, one source of truth, one motion.
+The reveal is coordinated through shared motion state rather than a collection of unrelated entrance animations. That keeps the interaction cohesive while allowing each section to respond in its own way.
 
-## Features
+## Highlights
 
-- 🕯️ **Signature light-reveal system** — a single state machine (`dark → igniting → lit → dimming → dark`) drives every visual on the page from one shared value
-- 🎛️ **Physical-feeling switch** — a dark, bezel-and-knob toggle living permanently in the navbar
-- 🖼️ **Ghost-opacity content** — sections sit at ~3% opacity in the dark and resolve into full color as the light reaches them, so the page feels *revealed*, not loaded
-- 📱 **Fully responsive** — a dedicated mobile treatment for the portrait and layout, not just a squeezed desktop view
-- ♿ **Accessible by default** — keyboard-operable switch (`role="switch"`, `aria-checked`), visible focus states, and `prefers-reduced-motion` support throughout
-- 🗂️ **Real project data** — every project card links to a live deployment and a real GitHub repo
-- 💬 **Direct contact options** — email, WhatsApp (with a pre-filled message), GitHub, LinkedIn, X, and TikTok, all wired to real accounts
+- **Signature light reveal** with a shared `lightLevel` motion value.
+- **Responsive presentation** with dedicated mobile treatment where needed.
+- **Scroll-driven motion** powered by GSAP and ScrollTrigger.
+- **Smooth scrolling** through Lenis.
+- **Project-driven content** stored separately from presentation components.
+- **Accessible interaction patterns** including keyboard-friendly controls and reduced-motion considerations.
+- **Direct contact links** for email, WhatsApp, GitHub, LinkedIn, X, and TikTok.
 
 ## Tech Stack
 
-| Layer | Choice |
-|---|---|
-| Framework | React 19 + Vite |
-| Styling | Tailwind CSS v4 (theme tokens via `@theme`, no `tailwind.config.js` color overrides) |
-| Motion | Framer Motion — a single `lightLevel` motion value drives every animated surface |
-| Icons | React Icons (`react-icons/fa6`, `react-icons/hi`) |
+| Area | Technology |
+| --- | --- |
+| Framework | React 19 |
+| Build tool | Vite 8 |
+| Styling | Tailwind CSS v4 |
+| Motion | GSAP, Framer Motion |
+| Smooth scrolling | Lenis |
+| Icons | Lucide React, React Icons |
 | Deployment | Vercel / Netlify |
 
 ## Project Structure
 
 ```text
-src/
-├── components/
-│   ├── layout/       # Navbar, Footer
-│   ├── ui/            # LightSwitch
-│   └── effects/
-│       └── LightReveal.jsx   # the light source + vignette overlay
-├── sections/          # Hero, About, Projects, Skills, Contact
-├── data/               # projects.js, skills.js, about.js, contact.js
-├── hooks/
-│   └── useLightReveal.js     # the state machine — single source of truth
-├── context/
-│   └── LightContext.jsx      # distributes light state via Provider
-└── App.jsx
+.
+├── docs/
+│   └── assets/              # README and repository documentation assets
+├── public/
+│   ├── assets/              # Public branding assets
+│   ├── hero-sequence/       # Hero image sequence assets
+│   ├── hero-desktop.mp4     # Desktop hero media
+│   ├── hero-mobile.mp4      # Mobile hero media
+│   └── resume.pdf            # Public resume
+├── src/
+│   ├── assets/              # Imported source assets
+│   ├── components/
+│   │   ├── effects/         # Cursor, loader, marquee, scroll effects
+│   │   ├── layout/          # Site-level layout/navigation
+│   │   ├── sections/        # Main portfolio sections
+│   │   └── ui/              # Reusable presentation components
+│   ├── data/                # Portfolio content and contact data
+│   ├── layouts/             # Page composition
+│   ├── lib/                 # Shared utilities and integrations
+│   ├── App.jsx
+│   ├── index.css
+│   └── main.jsx
+├── .github/
+├── index.html
+├── package.json
+├── .gitignore
+├── LICENSE
+└── README.md
 ```
+
+The structure separates **what the site does** from **what the site displays** without introducing a new architectural layer. Existing component behavior remains unchanged.
 
 ## Getting Started
 
-### Prerequisites
+### Requirements
 
 - Node.js 18+
 - npm
@@ -85,42 +104,47 @@ npm install
 npm run dev
 ```
 
-### Production Build
+### Production build
 
 ```bash
 npm run build
-npm run preview   # preview the production build locally
+npm run preview
 ```
 
-## The Light System, Briefly
+### Lint
 
-The whole interaction lives in one hook:
+```bash
+npm run lint
+```
+
+## Hero Media
+
+The hero currently uses separate desktop and mobile video assets from `public/`:
 
 ```text
-useLightReveal()
-  → phase: 'dark' | 'igniting' | 'lit' | 'dimming'
-  → lightLevel: a 0–1 motion value
-  → toggle(): flips the switch, locked mid-transition so a double-click can't break it
+public/hero-desktop.mp4
+public/hero-mobile.mp4
 ```
 
-Every visual — the navbar glow, the hero content, the ghost-opacity sections, the portrait's grayscale-to-color filter — reads from that same `lightLevel` and interpolates its own opacity, position, or filter from it. Nothing plays a separately-timed, hardcoded animation sequence.
+Keeping these files in `public/` allows the existing runtime paths to remain stable.
 
 ## Contact
 
-**Emmanuel Olatunde** — known as **Elitz**
+**Emmanuel Olatunde** — **Elitz**
 
 - Email: [olatundeemmanueldev@gmail.com](mailto:olatundeemmanueldev@gmail.com)
 - WhatsApp: [+234 906 688 2533](https://wa.me/2349066882533)
 - GitHub: [@OlatundeEmmanuelTantolorun](https://github.com/OlatundeEmmanuelTantolorun)
 - LinkedIn: [Emmanuel Tantolorun](https://www.linkedin.com/in/emmanuel-tantolorun-93244b3ab/)
 - X: [@elitz_dev](https://x.com/elitz_dev)
+- TikTok: [@elitz_dev01](https://www.tiktok.com/@elitz_dev01)
 
 ## License
 
-MIT — see [LICENSE](LICENSE) for details.
+MIT. See [LICENSE](LICENSE) for details.
 
 ---
 
 <div align="center">
-<sub>Built with React, Vite, Tailwind CSS, and Framer Motion. Designed and coded by Elitz.</sub>
+<sub>Built with React, Vite, Tailwind CSS, GSAP, Framer Motion, and Lenis. Designed and coded by Elitz.</sub>
 </div>

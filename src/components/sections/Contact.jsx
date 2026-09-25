@@ -1,6 +1,6 @@
 import { ArrowUpRight, Mail, MapPin, Phone, Send } from "lucide-react";
-import SectionLabel from "./SectionLabel";
-import { contact } from "../data/contact";
+import SectionLabel from "../ui/SectionLabel";
+import { contact } from "../../data/contact";
 
 const GithubIcon = ({ size = 16 }) => (
   <svg

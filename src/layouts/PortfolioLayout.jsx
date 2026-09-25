@@ -1,15 +1,15 @@
-import Navigation from "../components/Navigation";
-import Hero from "../components/Hero";
-import About from "../components/About";
-import Skills from "../components/Skills";
-import Projects from "../components/Projects";
-import Resume from "../components/Resume";
-import Contact from "../components/Contact";
-import Loader from "../components/Loader";
-import Cursor from "../components/Cursor";
-import ScrollProgress from "../components/ScrollProgress";
-import SectionCounter from "../components/SectionCounter";
-import Marquee from "../components/Marquee";
+import Navigation from "../components/layout/Navigation";
+import Hero from "../components/sections/Hero";
+import About from "../components/sections/About";
+import Skills from "../components/sections/Skills";
+import Projects from "../components/sections/Projects";
+import Resume from "../components/sections/Resume";
+import Contact from "../components/sections/Contact";
+import Loader from "../components/effects/Loader";
+import Cursor from "../components/effects/Cursor";
+import ScrollProgress from "../components/effects/ScrollProgress";
+import SectionCounter from "../components/ui/SectionCounter";
+import Marquee from "../components/effects/Marquee";
 
 const disciplines = ["FRONTEND", "BACKEND", "AI", "SECURITY", "DESIGN"];
 const thesis = ["BUILD IT", "UNDERSTAND IT", "MAKE IT BETTER"];

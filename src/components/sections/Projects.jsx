@@ -3,8 +3,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
-import SectionLabel from "./SectionLabel";
-import { projects } from "../data/projects";
+import SectionLabel from "../ui/SectionLabel";
+import { projects } from "../../data/projects";
 
 gsap.registerPlugin(ScrollTrigger);
 
