@@ -11,7 +11,7 @@ const PANELS = 1 + skillGroups.length;
 // Scroll length per panel transition, as a multiple of viewport height.
 // Higher = more scroll effort to traverse the panels.
 const MULTIPLIER_DESKTOP = 1.15;
-const MULTIPLIER_MOBILE = 1.8;
+const MULTIPLIER_MOBILE = 1.2;
 
 // Scrub lag — higher is smoother/heavier, lower is snappier.
 const SCRUB_DESKTOP = 1;
@@ -86,13 +86,15 @@ export default function Skills() {
 
     build();
 
+    // Only rebuild on reduced-motion toggle. ScrollTrigger handles its own
+    // resize refresh internally — a manual window resize listener tears down
+    // and recreates the pin on every mobile URL-bar collapse, which causes
+    // a visible jump back into the section.
     const onChange = () => build();
     media.addEventListener("change", onChange);
-    window.addEventListener("resize", onChange);
 
     return () => {
       media.removeEventListener("change", onChange);
-      window.removeEventListener("resize", onChange);
       if (ctx) ctx.revert();
     };
   }, []);
