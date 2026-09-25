@@ -8,6 +8,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 const PANELS = 1 + skillGroups.length;
 
+// Scroll length per panel transition, as a multiple of viewport height.
+// Higher = more scroll effort to traverse the panels.
+const MULTIPLIER_DESKTOP = 1.15;
+const MULTIPLIER_MOBILE = 1.8;
+
+// Scrub lag — higher is smoother/heavier, lower is snappier.
+const SCRUB_DESKTOP = 1;
+const SCRUB_MOBILE = 1.3;
+
 export default function Skills() {
   const root = useRef(null);
   const trackRef = useRef(null);
@@ -20,20 +29,23 @@ export default function Skills() {
     let ctx;
     const build = () => {
       if (ctx) ctx.revert();
-      // Reduced motion only — the pin works on every viewport now.
       if (media.matches) return;
 
       ctx = gsap.context(() => {
         const track = trackRef.current;
-        // Use svh so iOS Safari's URL bar collapse doesn't shift the pin.
+        const isMobile = () => window.matchMedia("(max-width: 767px)").matches;
+
+        // Measure the section's real rendered height. It's h-[100svh]
+        // on mobile and h-screen on desktop — same either way.
         const viewportUnit = () => {
-          const raw = getComputedStyle(root.current).getPropertyValue(
-            "--skills-vh",
-          );
-          const v = parseFloat(raw);
-          return Number.isFinite(v) && v > 0 ? v : window.innerHeight;
+          const h = root.current?.getBoundingClientRect().height;
+          return h && h > 0 ? h : window.innerHeight;
         };
-        const scrollLength = () => (PANELS - 1) * viewportUnit() * 1.15;
+
+        const scrollLength = () => {
+          const m = isMobile() ? MULTIPLIER_MOBILE : MULTIPLIER_DESKTOP;
+          return (PANELS - 1) * viewportUnit() * m;
+        };
 
         const tween = gsap.to(track, {
           xPercent: -100 * ((PANELS - 1) / PANELS),
@@ -43,7 +55,7 @@ export default function Skills() {
             start: "top top",
             end: () => "+=" + scrollLength(),
             pin: true,
-            scrub: 1,
+            scrub: isMobile() ? SCRUB_MOBILE : SCRUB_DESKTOP,
             anticipatePin: 1,
             invalidateOnRefresh: true,
           },
@@ -89,14 +101,12 @@ export default function Skills() {
     <section
       ref={root}
       id="skills"
-      className="relative h-[100svh] overflow-hidden bg-ink text-bone [--skills-vh:100svh]"
+      className="relative h-[100svh] overflow-hidden bg-ink text-bone"
     >
-      {/* Section label */}
       <div className="pointer-events-none absolute left-0 right-0 top-[clamp(70px,9vw,110px)] z-[3] px-[clamp(22px,7vw,110px)]">
         <SectionLabel number="02">TOOLKIT</SectionLabel>
       </div>
 
-      {/* TRACK WRAP — pinned and translated by GSAP on every viewport. */}
       <div
         data-cursor="scroll"
         className="skills-track-wrap h-full w-full overflow-hidden"
@@ -179,7 +189,6 @@ export default function Skills() {
         </div>
       </div>
 
-      {/* HORIZONTAL PROGRESS RAIL — visible on every viewport now */}
       <div className="pointer-events-none absolute bottom-8 left-[clamp(22px,7vw,110px)] right-[clamp(22px,7vw,110px)] h-px bg-bone/[0.08] md:bottom-10">
         <div className="skills-progress-fill absolute inset-y-0 left-0 w-full origin-left scale-x-0 bg-gold" />
       </div>
